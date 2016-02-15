@@ -16,19 +16,32 @@ $(document).ready(function() {
 });
 var democrats = ['hilary','bernie'];
 var republicans = ['jeb bush','ben carson','ted cruz','john kasich','marco rubio','donald trump'];
-function checkForParty(stringToParse) {
+function checkForParty(party) {
     var color;
-    if(stringToParse.equals('Rep')) {
+    if(party === 'Rep') {
         color = '#f00';
     }
     
     //check for repubplicans
-    if( stringToParse.equals('Dem')) {
+    if( party === 'Dem') {
         color = '#00f';
     }
+    
     //return correct color
     return color;
 }
+function dataColor(string) {
+    var color;
+    if(string === 'Favorable' || string === 'Right Direction') {
+        color = '#0f0';
+    } else if(string === 'Unfavorable' || string === 'Wrong Track') {
+        color = '#f00';
+    } else {
+        color = '#808080';
+    }
+    return color;
+}
+
 function findTopCandidates(data) {
     data.sort(function(a, b) {
         return a.value - b.value; 
@@ -44,9 +57,9 @@ function findTopCandidates(data) {
 }
 function findFavorable(data) {
     var graphData = [];   
-    graphData.push({choice: 'Favorable', value: 0});
-    graphData.push({choice: 'Unfavorable', value:0});
-    graphData.push({choice: 'Undecided', value: 0});
+    graphData.push({choice: 'Favorable', value: 0, party: null});
+    graphData.push({choice: 'Unfavorable', value:0, party: null});
+    graphData.push({choice: 'Undecided', value: 0, party:null});
     for(var i = 0; i < data.length; i++) {
         if(data[i].choice.toLowerCase().indexOf('unfavorable') > -1) {
             graphData[1].value += data[i].value;
@@ -88,15 +101,14 @@ function drawData (canvas, graph){
     //draw rectangle each person is 6px
     var ctx = canvas.getContext('2d');
     //draw rectangle for first candidate
-    ctx.fillStyle = '#f00';
-    ctx.fillRect(152, 125, graph.dataOne * 6, 50);
-    //draw rectangle for second candidate
-    ctx.fillStyle = '#00f';
-    ctx.fillRect(152, 225, graph.dataTwo * 6, 50);
-    
-    ctx.fillStyle = '#fff';
-    ctx.fillText(graph.dataOne, 115 + (graph.dataOne * 6), 155);
-    ctx.fillText(graph.dataTwo, 115 + (graph.dataTwo * 6), 255);
+    var startY = (graph.data.length > 2) ? 75 : 125;
+    var textY = (graph.data.length > 2) ? 105 : 155;
+    for (var i = 0; i < graph.data.length; i++) {
+        ctx.fillStyle = (graph.data[i].party === null) ? dataColor(graph.data[i].choice) : checkForParty(graph.data[i].party);
+        ctx.fillRect(152, startY + (90 * i), graph.data[i].value * 6, 50);
+        ctx.fillStyle = '#fff';
+        ctx.fillText(graph.data[i].value, 125 + (graph.data[i].value * 6), textY + (90 * i));
+    }
 }
 
 function createGraph (canvas, data, topic) {
@@ -135,17 +147,10 @@ window.pollsterPoll = function(incoming_data){
     document.getElementById("methodData2").innerHTML = "Method of Polling: " + incoming_data[1].method;
     document.getElementById("partisanPollData2").innerHTML = "Type of Poll: " + incoming_data[1].partisan;
     document.getElementById("pollsterData2").innerHTML = "Person who conducted the Poll: " + incoming_data[1].pollster;
-<<<<<<< HEAD
-    document.getElementById("questionData20").innerHTML = "Question: " + incoming_data[1].questions[0].name;
-    //document.getElementById("questionData21").innerHTML = "Question: " + incoming_data[1].questions[1].name;
-    //document.getElementById("questionData22").innerHTML = "Question: " + incoming_data[1].questions[2].name;
     createGraph(document.getElementById('chartData20'),                                              incoming_data[1].questions[0].subpopulations[0].responses,                        incoming_data[1].questions[0].topic);
     createGraph(document.getElementById('chartData21'),                                              incoming_data[1].questions[1].subpopulations[0].responses,                        incoming_data[1].questions[1].topic);
     createGraph(document.getElementById('chartData22'),                                              incoming_data[1].questions[2].subpopulations[0].responses,                        incoming_data[1].questions[2].topic);
-=======
-    
-    
->>>>>>> 1f17dc3e4161a071b163f78162c555db6db0f52e
+
     
     document.getElementById("questionData30").innerHTML = "Question1: " + incoming_data[4].questions[0].name;
     document.getElementById("questionData31").innerHTML = "Question2: " + incoming_data[4].questions[1].name;
