@@ -1,8 +1,14 @@
 
 #title {
-    margin-left: auto;
-    margin-right: auto;
-    width: 200px;
+    background-image: url(images/american-flag-banner.jpg);
+    height: 100px;
+}
+
+#titleText {
+    margin: auto;
+    width: 300px;
+    vertical-align: middle;
+    color: black;
 }
 
 div h5 {
