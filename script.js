@@ -32,9 +32,9 @@ function checkForParty(party) {
 }
 function dataColor(string) {
     var color;
-    if(string === 'Favorable' || string === 'Right Direction') {
+    if(string === 'Favorable' || string === 'Right Direction' || string === 'Approve') {
         color = '#0f0';
-    } else if(string === 'Unfavorable' || string === 'Wrong Track') {
+    } else if(string === 'Unfavorable' || string === 'Wrong Track' || string === 'Disapprove') {
         color = '#f00';
     } else {
         color = '#808080';
@@ -110,7 +110,9 @@ function drawData (canvas, graph){
         ctx.fillText(graph.data[i].value, 125 + (graph.data[i].value * 6), textY + (90 * i));
     }
 }
-
+function drawCandidates(canvas,graph) {
+    
+}
 function createGraph (canvas, data, topic) {
     var graphData;
     if(topic.indexOf('primary') > -1) {
