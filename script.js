@@ -14,8 +14,26 @@ $(document).ready(function() {
         cache: true
     });
 });
-
-
+var democrats = ['hilary','bernie'];
+var republicans = ['jeb bush','ben carson','ted cruz','john kasich','marco rubio','donald trump'];
+function checkForParty(stringToParse) {
+    var color;
+    // check for any democrats
+    for(var i = 0; i< democrats.length; i++) {
+        if(stringToParse.tolowerCase().indexOf(democrats[i]) > 1) {
+            color = '#00F';
+        }
+    }
+    
+    //check for repubplicans
+    for (var i = 0; i < republicans.length; i++) {
+        if( stringToParse.tolowerCase().indexOf(republicans[i]) > 1) {
+            color = '#f00';
+        }
+    }
+    //return correct color
+    return color;
+}
 var Graph = function (scale, xName, yName, dataOne, dataTwo, question) {
     this.scale = scale;
     this.xName = xName;
