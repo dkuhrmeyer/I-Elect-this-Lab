@@ -96,9 +96,6 @@ window.pollsterPoll = function(incoming_data){
     document.getElementById("methodData2").innerHTML = "Method of Polling: " + incoming_data[1].method;
     document.getElementById("partisanPollData2").innerHTML = "Type of Poll: " + incoming_data[1].partisan;
     document.getElementById("pollsterData2").innerHTML = "Person who conducted the Poll: " + incoming_data[1].pollster;
-    document.getElementById("questionData20").innerHTML = "Question: " + incoming_data[1].questions[0].name;
-    //document.getElementById("questionData21").innerHTML = "Question: " + incoming_data[1].questions[1].name;
-    //document.getElementById("questionData22").innerHTML = "Question: " + incoming_data[1].questions[2].name;
     
     
     
