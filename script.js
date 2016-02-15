@@ -135,12 +135,17 @@ window.pollsterPoll = function(incoming_data){
     document.getElementById("methodData2").innerHTML = "Method of Polling: " + incoming_data[1].method;
     document.getElementById("partisanPollData2").innerHTML = "Type of Poll: " + incoming_data[1].partisan;
     document.getElementById("pollsterData2").innerHTML = "Person who conducted the Poll: " + incoming_data[1].pollster;
+<<<<<<< HEAD
     document.getElementById("questionData20").innerHTML = "Question: " + incoming_data[1].questions[0].name;
     //document.getElementById("questionData21").innerHTML = "Question: " + incoming_data[1].questions[1].name;
     //document.getElementById("questionData22").innerHTML = "Question: " + incoming_data[1].questions[2].name;
     createGraph(document.getElementById('chartData20'),                                              incoming_data[1].questions[0].subpopulations[0].responses,                        incoming_data[1].questions[0].topic);
     createGraph(document.getElementById('chartData21'),                                              incoming_data[1].questions[1].subpopulations[0].responses,                        incoming_data[1].questions[1].topic);
     createGraph(document.getElementById('chartData22'),                                              incoming_data[1].questions[2].subpopulations[0].responses,                        incoming_data[1].questions[2].topic);
+=======
+    
+    
+>>>>>>> 1f17dc3e4161a071b163f78162c555db6db0f52e
     
     document.getElementById("questionData30").innerHTML = "Question1: " + incoming_data[4].questions[0].name;
     document.getElementById("questionData31").innerHTML = "Question2: " + incoming_data[4].questions[1].name;
