@@ -5,6 +5,8 @@
     margin: auto;
     width: 640px;
     height: 100px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 #box {
@@ -14,6 +16,7 @@
     background-color: #ffffff;
     opacity: 0.75;
     filter: alpha(opacity=75);
+    padding
 }
 
 #content {
@@ -34,7 +37,7 @@ div h5 {
 }
 
 #tabs-1 {
-    font-size: 16px;
+    
     font-family: Arial;
     
 }
@@ -45,5 +48,10 @@ div h5 {
     border: 2px solid #A60303;
     color: #FFFFFF;
     font-weight: bold;
+}
+
+#chartData {
+    background-color: aliceblue;
+    background
 }
 

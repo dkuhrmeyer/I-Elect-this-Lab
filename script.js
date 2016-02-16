@@ -14,8 +14,10 @@ $(document).ready(function() {
         cache: true
     });
 });
-var democrats = ['hilary','bernie'];
-var republicans = ['jeb bush','ben carson','ted cruz','john kasich','marco rubio','donald trump'];
+var democrats = ['Clinton','Sanders'];
+var democratsImages = ['Candidates/hillaryClinton.jpg', 'Candidates/bernieSanders.jpg'];
+var republicans = ['Bush', 'Carson', 'Cruz', 'Kasich', 'Rubio', 'Trump'];
+var gopImages = ['Candidates/jebBush.jpg', 'Candidates/BenCarson.jpg', 'Candidates/tedCruz.jpg', 'Candidates/johnKasich.jpg', 'Candidates/marcoRubio.jpg', 'Candidates/donaldTrump.jpg'];
 function checkForParty(party) {
     var color;
     if(party === 'Rep') {
@@ -32,9 +34,9 @@ function checkForParty(party) {
 }
 function dataColor(string) {
     var color;
-    if(string === 'Favorable' || string === 'Right Direction') {
+    if(string === 'Favorable' || string === 'Right Direction' || string === 'Approve') {
         color = '#0f0';
-    } else if(string === 'Unfavorable' || string === 'Wrong Track') {
+    } else if(string === 'Unfavorable' || string === 'Wrong Track' || string === 'Disapprove') {
         color = '#f00';
     } else {
         color = '#808080';
@@ -75,6 +77,25 @@ var Graph = function (xName, data) {
     this.data = data;
     this.xName = xName;
 };
+function findImage(data) {
+    var image;
+    if(data.party === null) {
+        if(data.choice === 'Approve' || data.choice === 'Favorable' || data.choice === 'Right Direction') {
+            image =  'images/approve.png';  
+        } else if(data.choice === 'Disapprove' || data.choice === 'Unfavorable' || data.choice === 'Wrong Track') {
+            image = 'images/disapprove.png';   
+        } else {
+            image = 'images/questionMark.png'; 
+        }
+    } else {
+        if(data.party === 'Rep') {
+            image = gopImages[republicans.indexOf(data.choice)];
+        } else {
+            image = democratsImages[democrats.indexOf(data.choice)]; 
+        }
+    }
+    return image;
+}
 function drawLine(ctx, startx, startY, finishx, finishy) {
     ctx.beginPath();
     ctx.moveTo(startx, startY);
@@ -103,14 +124,36 @@ function drawData (canvas, graph){
     //draw rectangle for first candidate
     var startY = (graph.data.length > 2) ? 75 : 125;
     var textY = (graph.data.length > 2) ? 105 : 155;
+    var space = (graph.data.length > 2) ? 90 : 110;
     for (var i = 0; i < graph.data.length; i++) {
         ctx.fillStyle = (graph.data[i].party === null) ? dataColor(graph.data[i].choice) : checkForParty(graph.data[i].party);
-        ctx.fillRect(152, startY + (90 * i), graph.data[i].value * 6, 50);
+        ctx.fillRect(152, startY + (space * i), graph.data[i].value * 6, 50);
         ctx.fillStyle = '#fff';
-        ctx.fillText(graph.data[i].value, 125 + (graph.data[i].value * 6), textY + (90 * i));
+        ctx.fillText(graph.data[i].value, 127 + (graph.data[i].value * 6), textY + (space * i));
     }
 }
-
+function drawCandidates(canvas,graph) {
+    var ctx = canvas.getContext('2d');
+    var startY = (graph.data.length > 2) ? 50 : 95;
+    var space = (graph.data.length > 2) ? 100 : 120;
+    var image = new Image();
+    image.onload = function() {
+        ctx.drawImage(image,65,startY,64,100);
+    }
+    image.src = findImage(graph.data[0]);
+    var imageTwo = new Image();
+    imageTwo.onload = function() {
+        ctx.drawImage(imageTwo,65,startY + (space * 1),64,100);
+    }
+    imageTwo.src = findImage(graph.data[1]);
+    if(graph.data.length > 2) {
+        var imageThree = new Image();
+        imageThree.onload = function() {
+            ctx.drawImage(imageThree,65,startY + (space * 2), 64,100);   
+        }
+        imageThree.src = findImage(graph.data[2]);
+    }
+}
 function createGraph (canvas, data, topic) {
     var graphData;
     if(topic.indexOf('primary') > -1) {
@@ -128,6 +171,7 @@ function createGraph (canvas, data, topic) {
     //display graph to page
     displayGraph(graph, canvas);
     drawData(canvas, graph);
+    drawCandidates(canvas,graph);
 }
 
 window.pollsterPoll = function(incoming_data){
