@@ -1,9 +1,9 @@
 
 #title {
-    background-image: url(images/american-flag-banner.jpg);
+    background-image: url(images/newAmericanFlag.png);
     background-repeat: no-repeat;
     margin: auto;
-    width: 640px;
+    width: 900px;
     height: 100px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -51,7 +51,120 @@ div h5 {
 }
 
 #chartData {
+    
     background-color: aliceblue;
-    background
+    border-radius: 10px;
+    height: 450px;
+    width: auto;
+    
+}
+
+#chartData1 {
+    background-color: aliceblue;
+    border-radius: 10px;
+    height: 450px;
+    width: auto;
+}
+
+#chartData2 {
+    background-color: aliceblue;
+    border-radius: 10px;
+    height: 450px;
+    width: auto;
+}
+
+#chartData20 {
+    background-color: aliceblue;
+    border-radius: 10px;
+    height: 450px;
+    width: auto;
+}
+
+#chartData21 {
+    background-color: aliceblue;
+    border-radius: 10px;
+    height: 450px;
+    width: auto;
+}
+
+#chartData22 {
+    background-color: aliceblue;
+    border-radius: 10px;
+    height: 450px;
+    width: auto;
+}
+
+#chartData30 {
+    background-color: aliceblue;
+    border-radius: 10px;
+    height: 450px;
+    width: auto;
+}
+
+#chartData31 {
+    background-color: aliceblue;
+    border-radius: 10px;
+    height: 450px;
+    width: auto;
+}
+
+#chartData32 {
+    background-color: aliceblue;
+    border-radius: 10px;
+    height: 450px;
+    width: auto;
+}
+
+#questionData {
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+#questionData1 {
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#questionData2 {
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#questionData20 {
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+#questionData21 {
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#questionData22 {
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#questionData30 {
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#questionData31 {
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    
+}
+
+#questionData32 {
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
