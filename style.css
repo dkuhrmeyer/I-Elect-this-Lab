@@ -54,6 +54,7 @@ div h5 {
     font-weight: bold;
 }
 
+
 #methodData {
     font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
     font-size: 15px;
@@ -108,69 +109,57 @@ div h5 {
     font-style: bold;
 }
 
+
+canvas {
+    position: relative;
+    left: 22px;
+}
+
 #chartData {
     
     background-color: aliceblue;
     border-radius: 10px;
-    height: 450px;
-    width: auto;
     
 }
 
 #chartData1 {
     background-color: aliceblue;
     border-radius: 10px;
-    height: 450px;
-    width: auto;
 }
 
 #chartData2 {
     background-color: aliceblue;
     border-radius: 10px;
-    height: 450px;
-    width: auto;
 }
 
 #chartData20 {
     background-color: aliceblue;
     border-radius: 10px;
-    height: 450px;
-    width: auto;
 }
 
 #chartData21 {
     background-color: aliceblue;
     border-radius: 10px;
-    height: 450px;
-    width: auto;
 }
 
 #chartData22 {
     background-color: aliceblue;
     border-radius: 10px;
-    height: 450px;
-    width: auto;
 }
 
 #chartData30 {
     background-color: aliceblue;
     border-radius: 10px;
-    height: 450px;
-    width: auto;
 }
 
 #chartData31 {
     background-color: aliceblue;
     border-radius: 10px;
-    height: 450px;
-    width: auto;
 }
 
 #chartData32 {
     background-color: aliceblue;
     border-radius: 10px;
-    height: 450px;
-    width: auto;
 }
 
 #questionData {
