@@ -1,4 +1,8 @@
 
+html {
+    background-color: azure;
+}
+
 #title {
     background-image: url(images/newAmericanFlag.png);
     background-repeat: no-repeat;
@@ -20,6 +24,11 @@
     filter: alpha(opacity=75);
     border-radius: 10px;
     
+}
+
+canvas {
+    
+    box-shadow: 10px 10px 5px #888888;
 }
 
 #content {
