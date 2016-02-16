@@ -14,7 +14,7 @@
     background-color: #ffffff;
     opacity: 0.75;
     filter: alpha(opacity=75);
-    padding: 5px;
+    padding
 }
 
 #titleText {
@@ -30,7 +30,7 @@ div h5 {
 }
 
 #tabs-1 {
-    font-size: 16px;
+    
     font-family: Arial;
     
 }
@@ -41,5 +41,10 @@ div h5 {
     border: 2px solid #A60303;
     color: #FFFFFF;
     font-weight: bold;
+}
+
+#chartData {
+    background-color: aliceblue;
+    background
 }
 
