@@ -1,7 +1,9 @@
 
 #title {
     background-image: url(images/american-flag-banner.jpg);
+    background-repeat: no-repeat;
     margin: auto;
+    width: 640px;
     height: 100px;
 }
 
@@ -12,6 +14,11 @@
     background-color: #ffffff;
     opacity: 0.75;
     filter: alpha(opacity=75);
+}
+
+#content {
+    width: 900px;
+    margin: auto;
 }
 
 #titleText {
