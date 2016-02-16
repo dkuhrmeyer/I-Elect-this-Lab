@@ -10,13 +10,16 @@
 }
 
 #box {
+    position: relative;
+    top: 30px;
     margin-left: auto;  
     margin-right: auto;
     width: 350px;
     background-color: #ffffff;
-    opacity: 0.75;
+    opacity: 0.95;
     filter: alpha(opacity=75);
-    padding
+    border-radius: 10px;
+    
 }
 
 #content {
@@ -27,8 +30,9 @@
 #titleText {
     margin: auto;
     width: 270px;
-    vertical-align: middle;
+     
     color: black;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 }
 
 div h5 {
@@ -48,6 +52,60 @@ div h5 {
     border: 2px solid #A60303;
     color: #FFFFFF;
     font-weight: bold;
+}
+
+#methodData {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size: 15px;
+    font-style: bold;
+}
+
+#partisanPollData {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size: 15px;
+    font-style: bold;
+}
+
+#pollsterData {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size: 15px;
+    font-style: bold;
+}
+
+#methodData2 {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size: 15px;
+    font-style: bold;
+}
+
+#partisanPollData2 {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size: 15px;
+    font-style: bold;
+}
+
+#pollsterData2 {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size: 15px;
+    font-style: bold;
+}
+
+#methodData3 {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size: 15px;
+    font-style: bold;
+}
+
+#partisanPollData3 {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size: 15px;
+    font-style: bold;
+}
+
+#pollsterData3 {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size: 15px;
+    font-style: bold;
 }
 
 #chartData {
@@ -116,46 +174,70 @@ div h5 {
 }
 
 #questionData {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size: 20px;
+    font-style: bold;
     text-align: center;
     padding-bottom: 5px;
 }
 
 #questionData1 {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size: 20px;
+    font-style: bold;
     text-align: center;
     padding-top: 5px;
     padding-bottom: 5px;
 }
 
 #questionData2 {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size: 20px;
+    font-style: bold;
     text-align: center;
     padding-top: 5px;
     padding-bottom: 5px;
 }
 
 #questionData20 {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size: 20px;
+    font-style: bold;
     text-align: center;
     padding-bottom: 5px;
 }
 
 #questionData21 {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size: 20px;
+    font-style: bold;
     text-align: center;
     padding-top: 5px;
     padding-bottom: 5px;
 }
 
 #questionData22 {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size: 20px;
+    font-style: bold;
     text-align: center;
     padding-top: 5px;
     padding-bottom: 5px;
 }
 
 #questionData30 {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size: 20px;
+    font-style: bold;
     text-align: center;
     padding-top: 5px;
     padding-bottom: 5px;
 }
 
 #questionData31 {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size: 20px;
+    font-style: bold;
     text-align: center;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -163,6 +245,9 @@ div h5 {
 }
 
 #questionData32 {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size: 20px;
+    font-style: bold;
     text-align: center;
     padding-top: 5px;
     padding-bottom: 5px;
