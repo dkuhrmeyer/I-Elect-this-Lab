@@ -21,12 +21,12 @@ var gopImages = ['Candidates/jebBush.jpg', 'Candidates/BenCarson.jpg', 'Candidat
 function checkForParty(party) {
     var color;
     if(party === 'Rep') {
-        color = '#f00';
+        color = '#A00';
     }
     
     //check for repubplicans
     if( party === 'Dem') {
-        color = '#00f';
+        color = '#00A';
     }
     
     //return correct color
@@ -35,9 +35,9 @@ function checkForParty(party) {
 function dataColor(string) {
     var color;
     if(string === 'Favorable' || string === 'Right Direction' || string === 'Approve') {
-        color = '#0f0';
+        color = '#0A0';
     } else if(string === 'Unfavorable' || string === 'Wrong Track' || string === 'Disapprove') {
-        color = '#f00';
+        color = '#A00';
     } else {
         color = '#808080';
     }
@@ -106,25 +106,28 @@ function displayGraph(graph, canvas) {
     var ctx = canvas.getContext('2d');
     ctx.lineWidth = '4';
     ctx.font = '18px Arial';
+    var endY = (graph.data.length > 2) ? 450 : 350;
+    var textY = (graph.data.length > 2) ? 460 : 360;
+    console.log(textY);
     //draw Y axis
-    drawLine(ctx, 150, 50, 150, 350);
+    drawLine(ctx, 150, 50, 150, endY);
     // draw x axis
-    drawLine(ctx, 150, 350, 752, 350);
+    drawLine(ctx, 150, endY, 752, endY);
     //draw x axis lines
     for (var i = 0; i < 6; i++) {
         var x = (i == 0) ? 145 : (i == 5) ? 135 : 140;
-        drawLine(ctx, (150 + (i * 120)), 350, (150 + (i * 120)), 360);   
-        ctx.fillText(i * 20, x + (i * 120), 380);
+        drawLine(ctx, (150 + (i * 120)), endY, (150 + (i * 120)), textY);   
+        ctx.fillText(i * 20, x + (i * 120), textY + 20);
     }    
-    ctx.fillText(graph.xName, 360, 415);
+    ctx.fillText(graph.xName, 360, textY + 55);
 }
 function drawData (canvas, graph){
     //draw rectangle each person is 6px
     var ctx = canvas.getContext('2d');
     //draw rectangle for first candidate
-    var startY = (graph.data.length > 2) ? 75 : 125;
-    var textY = (graph.data.length > 2) ? 105 : 155;
-    var space = (graph.data.length > 2) ? 90 : 110;
+    var startY = (graph.data.length > 2) ? 95 : 105;
+    var textY = (graph.data.length > 2) ? 125 : 135;
+    var space = (graph.data.length > 2) ? 125 : 120;
     for (var i = 0; i < graph.data.length; i++) {
         ctx.fillStyle = (graph.data[i].party === null) ? dataColor(graph.data[i].choice) : checkForParty(graph.data[i].party);
         ctx.fillRect(152, startY + (space * i), graph.data[i].value * 6, 50);
@@ -134,22 +137,22 @@ function drawData (canvas, graph){
 }
 function drawCandidates(canvas,graph) {
     var ctx = canvas.getContext('2d');
-    var startY = (graph.data.length > 2) ? 50 : 95;
-    var space = (graph.data.length > 2) ? 100 : 120;
+    var startY = (graph.data.length > 2) ? 70 : 70;
+    var space = (graph.data.length > 2) ? 130 : 140;
     var image = new Image();
     image.onload = function() {
-        ctx.drawImage(image,65,startY,64,100);
+        ctx.drawImage(image,65,startY,75,117);
     }
     image.src = findImage(graph.data[0]);
     var imageTwo = new Image();
     imageTwo.onload = function() {
-        ctx.drawImage(imageTwo,65,startY + (space * 1),64,100);
+        ctx.drawImage(imageTwo,65,startY + (space * 1),75,117);
     }
     imageTwo.src = findImage(graph.data[1]);
     if(graph.data.length > 2) {
         var imageThree = new Image();
         imageThree.onload = function() {
-            ctx.drawImage(imageThree,65,startY + (space * 2), 64,100);   
+            ctx.drawImage(imageThree,65,startY + (space * 2), 75,117);   
         }
         imageThree.src = findImage(graph.data[2]);
     }
@@ -167,6 +170,7 @@ function createGraph (canvas, data, topic) {
     }
     console.log(graphData);
     //build graph
+    canvas.height = (graphData.length > 2) ? 550 : 450;
     var graph = new Graph('Percentage of people polled', graphData);
     //display graph to page
     displayGraph(graph, canvas);
